@@ -14,13 +14,13 @@ module Frequest
       HTTP::Client.get(url + body, headers: headers)
     when "POST"
       body = SJSON.stringToJson(body.to_s)
-      HTTP::Client.post(url, headers: headers, body: body)
+      HTTP::Client.post(url, headers: headers, body: body.to_s)
     when "PUT"
       body = SJSON.stringToJson(body.to_s)
-      HTTP::Client.put(url, headers: headers, body: body)
+      HTTP::Client.put(url, headers: headers, body: body.to_s)
     when "DELETE"
       body = SJSON.stringToJson(body.to_s)
-      HTTP::Client.delete(url, headers: headers, body: body)
+      HTTP::Client.delete(url, headers: headers, body: body.to_s)
     end
 
     if !response.nil?
