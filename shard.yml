@@ -1,0 +1,12 @@
+name: frequest
+version: 0.1.0
+
+authors:
+  - Taufik <taufik@academiaworks.id>
+dependencies:
+  sjson:
+    github: taufikmaulanaa/sjson
+
+crystal: '>= 1.13.1'
+
+license: MIT
