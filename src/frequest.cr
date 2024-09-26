@@ -5,7 +5,7 @@ require "sjson"
 module Frequest
   VERSION = "0.1.0"
 
-  def self.new(method, url, headers, body)
+  def self.new(method, url, headers, body, only_return_body = true)
     # body = env.params.body.nil? ? env.params.body.to_s : ""   # Ambil body sebagai string
 
     response = case method
@@ -24,7 +24,11 @@ module Frequest
     end
 
     if !response.nil?
-      response.body
+      if only_return_body
+        response.body
+      else
+        response
+      end
     end
   end
 end
