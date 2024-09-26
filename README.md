@@ -20,7 +20,20 @@ TODO: Write a description here
 require "frequest"
 ```
 
-TODO: Write usage instructions here
+Cara membuat request
+```crystal
+begin
+  response = Frequest.new(
+    method: "GET",
+    url: "http://api.id/test",
+    body: URI::Params.encode({ "username" => username }),
+    headers: HTTP::Headers{ "username" => "X" }
+  )
+  response
+rescue exception
+  puts "error : #{exception.message})"
+end
+```
 
 ## Development
 
