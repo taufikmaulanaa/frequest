@@ -13,13 +13,13 @@ module Frequest
       body = !body.to_s.empty? ? "?#{body.to_s}" : ""
       HTTP::Client.get(url + body, headers: headers)
     when "POST"
-      body = SJSON.stringToJson(body.to_s)
+      body = (SJSON.stringToHash(body.to_s).to_json.to_s)
       HTTP::Client.post(url, headers: headers, body: body.to_s)
     when "PUT"
-      body = SJSON.stringToJson(body.to_s)
+      body = (SJSON.stringToHash(body.to_s).to_json.to_s)
       HTTP::Client.put(url, headers: headers, body: body.to_s)
     when "DELETE"
-      body = SJSON.stringToJson(body.to_s)
+      body = (SJSON.stringToHash(body.to_s).to_json.to_s)
       HTTP::Client.delete(url, headers: headers, body: body.to_s)
     end
 
